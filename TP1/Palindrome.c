@@ -21,7 +21,7 @@ bool isPalindrome(char *str){
 }
 
 int main(){
-    char str[50];
+    char str[1000];
     fgets(str, sizeof(str), stdin);
 
     while (strcmp(INPUT_BREAK, str)){

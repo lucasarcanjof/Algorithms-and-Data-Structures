@@ -1,11 +1,9 @@
-class AlgebraBooleana{
-
-    public static boolean calcular(String str) {
+public class AlgebraBooleanaRec {
+    public static String calcular(String str, int n) {
         String resp = "";
         int inicio = 0, fim = 0;
-        boolean resposta;
 
-        while (str.length() > 1) {
+        if (n > 1) {
 
             for (int i = 0; i < str.length(); i++) {
                 if (str.charAt(i) == '(') {
@@ -75,16 +73,11 @@ class AlgebraBooleana{
                 }
             }
 
-            str = resp.replaceAll(" ", "");
-        }
+            resp = resp.replaceAll(" ", "");
+            str = calcular(resp,resp.length());
+        } 
 
-        if (str.charAt(0) == '1') {
-            resposta = true;
-        } else {
-            resposta = false;
-        }
-
-        return resposta;
+        return str;
     }
 
     public static void main(String[] args) {
@@ -121,12 +114,8 @@ class AlgebraBooleana{
                 }
             }
 
-            if (calcular(bool)) {
-                System.out.println("1");
-            } else {
-                System.out.println("0");
-            }
-
+            System.out.println(calcular(bool, bool.length()));
+        
             str = MyIO.readLine().replaceAll(" ", "");
         }
 
